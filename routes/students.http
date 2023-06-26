@@ -1,0 +1,23 @@
+GET http://localhost:6000/students
+
+#########
+
+POST http://localhost:6000/students HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Davide",
+    "surname": "Palmiotto",
+    "birth_date": "12/04/1990",
+    "email": "palmiotto@gmail.com",
+    "password": "gatto",
+    "fiscal_code": "MSSNDR90D12E801M",
+    "school_subjects": [
+        {
+            "storia": {
+                "orale": [5, 6, 7, 8],
+                "scritto": [5, 6, 7, 8]
+            }
+        }
+    ]
+}

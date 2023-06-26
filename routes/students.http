@@ -6,18 +6,152 @@ POST http://localhost:6000/students HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Davide",
-    "surname": "Palmiotto",
+    "name": "Andrea",
+    "surname": "Messana",
     "birth_date": "12/04/1990",
-    "email": "palmiotto@gmail.com",
-    "password": "gatto",
+    "email": "andre90messana@gmail.com",
+    "password": "briciola2",
     "fiscal_code": "MSSNDR90D12E801M",
-    "school_subjects": [
-        {
-            "storia": {
-                "orale": [5, 6, 7, 8],
-                "scritto": [5, 6, 7, 8]
+    "school_subjects": {
+            "primo_quadrimestre": [
+            {
+                "storia": {
+                    "orale": [4,5,9],
+                    "scritto": [6,7,6],
+                    "media_orale": 6,
+                    "media_scritto": 6,
+                    "media_fine_primo_quadrimestre": 6
+                },
+                "filosofia": {
+                    "orale": [4, 4, 4],
+                    "scritto": [4, 4, 4],
+                    "media_orale": 4,
+                    "media_scritto": 4,
+                    "media_fine_primo_quadrimestre": 4
+                },
+                "italiano": {
+                    "orale": [5, 5, 5],
+                    "scritto": [5, 5, 5],
+                    "media_orale": 5,
+                    "media_scritto": 5,
+                    "media_fine_primo_quadrimestre": 5 
+                },
+                "matematica": {
+                    "orale": [7, 7, 7],
+                    "scritto": [7, 7, 7],
+                    "media_orale": 7,
+                    "media_scritto": 7,
+                    "media_fine_primo_quadrimestre": 7 
+                },
+                "scienze": {
+                    "orale": [8, 8, 8],
+                    "scritto": [8, 8, 8],
+                    "media_orale": 8,
+                    "media_scritto": 8,
+                    "media_fine_primo_quadrimestre": 8 
+                },
+                "educazione_fisica": {
+                    "orale": [9, 9, 9],
+                    "scritto": [9, 9, 9],
+                    "media_orale": 9,
+                    "media_scritto": 9,
+                    "media_fine_primo_quadrimestre": 9
+                },
+                "fisica": {
+                    "orale": [6, 6, 6],
+                    "scritto": [6, 6, 6],
+                    "media_orale": 6,
+                    "media_scritto": 6,
+                    "media_fine_primo_quadrimestre": 6
+                },
+                "comportamtento": {
+                    "voto": 6
+                }
             }
-        }
-    ]
+        ],
+        "secondo_quadrimestre": [
+            {
+                "storia": {
+                    "orale": [9, 9, 9],
+                    "scritto": [9, 9, 9],
+                    "media_orale": 9,
+                    "media_scritto": 9,
+                    "media_fine_secondo_quadrimestre": 9
+                },
+                "filosofia": {
+                    "orale": [7, 7, 7],
+                    "scritto": [7, 7, 7],
+                    "media_orale": 7,
+                    "media_scritto": 7,
+                    "media_fine_secondo_quadrimestre": 7
+                },
+                "italiano": {
+                    "orale": [6, 6, 6],
+                    "scritto": [6, 6, 6],
+                    "media_orale": 6,
+                    "media_scritto": 6,
+                    "media_fine_secondo_quadrimestre": 6 
+                },
+                "matematica": {
+                    "orale": [7, 7, 7],
+                    "scritto": [7, 7, 7],
+                    "media_orale": 7,
+                    "media_scritto": 7,
+                    "media_fine_secondo_quadrimestre": 7 
+                },
+                "scienze": {
+                    "orale": [6, 6, 6],
+                    "scritto": [6, 6, 6],
+                    "media_orale": 6,
+                    "media_scritto": 6,
+                    "media_fine_secondo_quadrimestre": 6 
+                },
+                "educazione_fisica": {
+                    "orale": [7, 7, 7],
+                    "scritto": [7, 7, 7],
+                    "media_orale": 7,
+                    "media_scritto": 7,
+                    "media_fine_secondo_quadrimestre": 7 
+                },
+                "fisica": {
+                    "orale": [6, 6, 6],
+                    "scritto": [6, 6, 6],
+                    "media_orale": 6,
+                    "media_scritto": 6,
+                    "media_fine_secondo_quadrimestre": 6 
+                },
+                "comportamtento": {
+                    "voto": 7
+                }
+            }
+        ],
+        "Media_voti_finale": [
+            {
+                "storia": {
+                    "media": 7
+                },
+                "filosofia": {
+                    "media": 5
+                },
+                "italiano": {
+                    "media": 5
+                },
+                "matematica": {
+                    "media": 7
+                },
+                "scienze": {
+                    "media": 7
+                },
+                "educazione_fisica": {
+                    "media": 7
+                },
+                "fisica": {
+                    "media": 6
+                },
+                "comportamtento": {
+                    "voto": 6
+                }
+            }
+        ]
+    }  
 }

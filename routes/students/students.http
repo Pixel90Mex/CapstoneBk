@@ -1,6 +1,6 @@
 GET http://localhost:6000/students
 
-#########
+########################################
 
 POST http://localhost:6000/students HTTP/1.1
 content-type: application/json
@@ -155,3 +155,18 @@ content-type: application/json
         ]
     }  
 }
+
+#################################################
+PATCH http://localhost:6000/students/64999fed3d664d25067f0b5f HTTP/1.1
+content-type: application/json
+
+{
+    "email": "andre90mexican@gmail.com",
+    "password": "1234"
+}
+
+
+#################################################
+
+DELETE http://localhost:6000/students/64999fed3d664d25067f0b5f HTTP/1.1
+content-type: application/json

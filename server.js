@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import studentsRoute from "./routes/students.js";
+import studentsRoute from "./routes/students/students.js";
 
 const PORT = 6000;
 

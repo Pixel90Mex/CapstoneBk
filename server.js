@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import studentsRoute from "./routes/students/students.js";
+import teachersRoute from "./routes/teachers/teacher.js";
 
 const PORT = 6000;
 
@@ -9,6 +10,7 @@ const server = express();
 server.use(express.json());
 
 server.use("/", studentsRoute);
+server.use("/", teachersRoute);
 
 mongoose.connect('mongodb+srv://andre90mexican:kKGF8EsYVNsejPJU@corsoepicode.91bakel.mongodb.net/', {
     useNewUrlParser: true,

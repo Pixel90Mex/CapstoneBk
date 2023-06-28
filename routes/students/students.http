@@ -12,6 +12,7 @@ content-type: application/json
     "email": "andre90messana@gmail.com",
     "password": "briciola2",
     "fiscal_code": "MSSNDR90D12E801M",
+    "class": "5^A",
     "school_subjects": {
             "primo_quadrimestre": [
             {

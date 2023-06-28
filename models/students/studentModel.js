@@ -26,6 +26,10 @@ const studentSchema = new Schema({
         required: true,
         max: 15
     },
+    class: {
+        type: String,
+        required: true
+    },
     school_subjects: {
         primo_quadrimestre :[
             {

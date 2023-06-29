@@ -1,0 +1,18 @@
+GET http://localhost:6000/classes 
+
+##################
+
+POST http://localhost:6000/classes
+content-type: application/json
+
+{
+    "class":{
+        "section": "5^A",
+        "teachers": [
+            "649bf9bf5a72ceaf0ea5934e"
+        ],
+        "students": [
+            "649c02b9042b6870690f98f8"
+        ]
+    } 
+}

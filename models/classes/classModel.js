@@ -2,15 +2,18 @@ import { Schema, model } from "mongoose";
 
 const classSchema = new Schema({
     class: {
-        sezione: String,
+        section: {
+            type: String,
+            required: true
+        },
         teachers: [
             {
-                type: mongoose.Schema.Types.ObjectId, ref: 'Teacher'
+                type: Schema.Types.ObjectId, ref: 'Teacher'
             }
         ],
         students: [
             {
-                type: mongoose.Schema.Types.ObjectId, ref: 'Student'
+                type: Schema.Types.ObjectId, ref: 'Student'
             }
         ]
     }
@@ -18,6 +21,6 @@ const classSchema = new Schema({
     timestamps: true,
     strict: true
 });
-const classModel = new model("Class", classSchema, "/classes");
+const classModel = new model("Class", classSchema, "classes");
 
 export default classModel;

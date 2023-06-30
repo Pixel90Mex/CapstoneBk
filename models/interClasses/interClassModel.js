@@ -9,15 +9,16 @@ const interClassSchema = new Schema({
     interclass: [
         {
             class: {
-                sezione: String,
+                type: Schema.Types.ObjectId, ref: 'Class',
+                section: String,
                 teachers: [
                     {
-                        type: mongoose.Schema.Types.ObjectId, ref: 'Teacher'
+                        type: Schema.Types.ObjectId, ref: 'Teacher'
                     }
                 ],
                 students: [
                     {
-                        type: mongoose.Schema.Types.ObjectId, ref: 'Student'
+                        type: Schema.Types.ObjectId, ref: 'Student'
                     }
                 ]
             }

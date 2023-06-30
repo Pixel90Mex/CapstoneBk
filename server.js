@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import studentsRoute from "./routes/students/students.js";
 import teachersRoute from "./routes/teachers/teacher.js";
 import classesRoute from "./routes/classes/classes.js";
+import interClassesRoute from "./routes/interclasses/interclasses.js";
 
 const PORT = 6000;
 
@@ -13,6 +14,7 @@ server.use(express.json());
 server.use("/", studentsRoute);
 server.use("/", teachersRoute);
 server.use("/", classesRoute);
+server.use("/", interClassesRoute);
 
 
 mongoose.connect('mongodb+srv://andre90mexican:kKGF8EsYVNsejPJU@corsoepicode.91bakel.mongodb.net/', {

@@ -1,0 +1,23 @@
+GET http://localhost:6000/interclasses
+
+###################
+
+POST http://localhost:6000/interclasses HTTP/1.1
+content-type: application/json
+
+{
+    "interclass": [
+        {
+            "class": {
+                "_id": "649e8aef31ab15db2abd5119",
+                "section": "5^A",
+                "teachers": [
+                    "649bf9bf5a72ceaf0ea5934e"
+                ],
+                "students": [
+                    "649c02b9042b6870690f98f8"
+                ]
+            }
+        }
+    ]
+}

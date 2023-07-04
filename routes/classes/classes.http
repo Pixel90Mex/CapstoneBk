@@ -7,12 +7,13 @@ content-type: application/json
 
 {
     "class":{
-        "section": "5^B",
+        "section": "5^C",
         "teachers": [
-            "649bf9bf5a72ceaf0ea5934e"
+             "649f0cc2d576e78d118769c8",
+             "64a464964d0d1061edb4ac33"
         ],
         "students": [
-            "649c02b9042b6870690f98f8"
+            "649f0cc9d576e78d118769cb"
         ]
     } 
 }

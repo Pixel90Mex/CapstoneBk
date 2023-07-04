@@ -6,12 +6,12 @@ POST http://localhost:6000/teachers HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Salvatore",
-    "surname": "Messana",
-    "birth_date": "4/05/1943",
-    "email": "salvatore90messana@gmail.com",
-    "password": "briciola2",
-    "fiscal_code": "MSSNDR90D12E80VT",
-    "school_subject": "storia",
+    "name": "Carlo",
+    "surname": "Leone",
+    "birth_date": "21/04/1987",
+    "email": "carlo87leone@gmail.com",
+    "password": "luna2",
+    "fiscal_code": "ccccccccccccccccc",
+    "school_subject": "fisica",
     "class": "5^A"
 }

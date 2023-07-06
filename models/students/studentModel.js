@@ -26,6 +26,11 @@ const studentSchema = new Schema({
         required: true,
         max: 15
     },
+    role: {
+        type: String,
+        required: false,
+        default: "student"
+    },
     class: {
         type: String,
         required: true

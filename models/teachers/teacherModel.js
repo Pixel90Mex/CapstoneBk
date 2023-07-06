@@ -26,6 +26,11 @@ const teacherSchema = new Schema({
         required: true,
         max: 15
     },
+    role: {
+        type: String,
+        required: false,
+        default: "teacher"
+    },
     school_subject: {
         type: String,
         required: true,

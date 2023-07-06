@@ -1,21 +1,25 @@
 import express from "express";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+import cors from "cors";
 import studentsRoute from "./routes/students/students.js";
 import teachersRoute from "./routes/teachers/teacher.js";
 import classesRoute from "./routes/classes/classes.js";
-import interClassesRoute from "./routes/interclasses/interclasses.js";
+import loginRoute from "./routes/login.js";
 
 const PORT = 6000;
+
+dotenv.config();
 
 const server = express();
 
 server.use(express.json());
+server.use(cors());
 
 server.use("/", studentsRoute);
 server.use("/", teachersRoute);
 server.use("/", classesRoute);
-server.use("/", interClassesRoute);
-
+server.use("/", loginRoute);
 
 mongoose.connect('mongodb+srv://andre90mexican:kKGF8EsYVNsejPJU@corsoepicode.91bakel.mongodb.net/', {
     useNewUrlParser: true,

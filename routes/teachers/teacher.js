@@ -40,6 +40,7 @@ router.post("/teachers", async (req, res) => {
         email: req.body.email,
         password: hashPassword,
         fiscal_code: req.body.fiscal_code,
+        role: req.body.role,
         school_subject: req.body.school_subject,
         class: req.body.class
     });

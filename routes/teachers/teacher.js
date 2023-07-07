@@ -4,11 +4,11 @@ import teacherModel from "../../models/teachers/teacherModel.js";
 
 const router = Router();
 //GET
-router.get("/teachers", async (req, res) => {
+router.get("/teacher", async (req, res) => {
     const { page = 1, pageSize = 3 } = req.query;
     try {
         const teachers = await teacherModel.find()
-            //.populate()
+            .populate("class_group.classes")
             .limit(pageSize)
             .skip((page - 1) * pageSize);
 
@@ -29,7 +29,7 @@ router.get("/teachers", async (req, res) => {
     }
 });
 //POST
-router.post("/teachers", async (req, res) => {
+router.post("/teacher", async (req, res) => {
     const genSalt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(req.body.password, genSalt);
 
@@ -42,7 +42,7 @@ router.post("/teachers", async (req, res) => {
         fiscal_code: req.body.fiscal_code,
         role: req.body.role,
         school_subject: req.body.school_subject,
-        class: req.body.class
+        class_group: req.body.class_group
     });
     try {
         const teacherExist = await teacherModel.findOne({
@@ -68,7 +68,7 @@ router.post("/teachers", async (req, res) => {
     }
 });
 //PATCH
-router.patch('/teachers/:id', async (req, res) => {
+router.patch('/teacher/:id', async (req, res) => {
     const { id } = req.params;
     const teacherExist = await teacherModel.findById(id);
     if (!teacherExist) {
@@ -99,7 +99,7 @@ router.patch('/teachers/:id', async (req, res) => {
     }
 });
 //DELETE
-router.delete('/teachers/:id', async (req, res) => {
+router.delete('/teacher/:id', async (req, res) => {
     const { id } = req.params;
 
     try {

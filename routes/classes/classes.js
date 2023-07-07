@@ -1,7 +1,5 @@
 import { Router } from "express";
 import classModel from "../../models/classes/classModel.js";
-import studentModel from "../../models/students/studentModel.js";
-import teacherModel from "../../models/teachers/teacherModel.js";
 
 const router = Router();
 
@@ -13,7 +11,6 @@ router.get("/class", async (req, res) => {
         const classes = await classModel
             .find()
             .populate("class.students")
-            .populate("class.teachers")
             .limit(pageSize)
             .skip((page - 1) * pageSize);
         
@@ -41,7 +38,6 @@ router.post("/class", async (req, res) => {
     const classToInsert = await classModel({
         class: {
             section: req.body.class.section,
-            teachers: req.body.class.teachers,
             students: req.body.class.students
         }
     })

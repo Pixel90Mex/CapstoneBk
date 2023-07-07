@@ -35,9 +35,12 @@ const teacherSchema = new Schema({
         type: String,
         required: true,
     },
-    class: {
-        type: String,
-        required: true
+    class_group: {
+        classes: [
+            {
+                type: Schema.Types.ObjectId, ref: 'Class'
+            }
+        ]
     }
 },
     {

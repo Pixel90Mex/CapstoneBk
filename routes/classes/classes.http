@@ -8,9 +8,6 @@ content-type: application/json
 {
     "class":{
         "section": "5^A",
-        "teachers": [
-             "64a7ec888cd8bd6d04824deb"
-        ],
         "students": [
             "64a7e3cff93b40ebd1760c27",
             "64a7eb2f10b2e7868d40e3e9"

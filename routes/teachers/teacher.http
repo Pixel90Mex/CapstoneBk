@@ -1,8 +1,8 @@
-GET http://localhost:5050/teachers
+GET http://localhost:5050/teacher
 
 ########################################
 
-POST http://localhost:5050/teachers HTTP/1.1
+POST http://localhost:5050/teacher HTTP/1.1
 content-type: application/json
 
 {
@@ -13,6 +13,11 @@ content-type: application/json
     "password": "luna2",
     "fiscal_code": "ccccccccccccccccc",
     "school_subject": "fisica",
-    "class": "5^A",
-    "role": "admin"
+    "role": "admin",
+    "class_group": {
+        "classes": [
+            "64a82007edebac3516a6e6b7"
+        ]
+    }
+    
 }

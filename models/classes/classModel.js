@@ -6,11 +6,6 @@ const classSchema = new Schema({
             type: String,
             required: true
         },
-        teachers: [
-            {
-                type: Schema.Types.ObjectId, ref: 'Teacher'
-            }
-        ],
         students: [
             {
                 type: Schema.Types.ObjectId, ref: 'Student'

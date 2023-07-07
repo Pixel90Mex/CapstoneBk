@@ -1,19 +1,19 @@
-GET http://localhost:6000/classes 
+GET http://localhost:5050/class 
 
 ##################
 
-POST http://localhost:6000/classes HTTP/1.1
+POST http://localhost:5050/class HTTP/1.1
 content-type: application/json
 
 {
     "class":{
-        "section": "5^C",
+        "section": "5^A",
         "teachers": [
-             "649f0cc2d576e78d118769c8",
-             "64a464964d0d1061edb4ac33"
+             "64a7ec888cd8bd6d04824deb"
         ],
         "students": [
-            "649f0cc9d576e78d118769cb"
+            "64a7e3cff93b40ebd1760c27",
+            "64a7eb2f10b2e7868d40e3e9"
         ]
     } 
 }

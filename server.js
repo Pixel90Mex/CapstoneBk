@@ -5,9 +5,9 @@ import cors from "cors";
 import studentsRoute from "./routes/students/students.js";
 import teachersRoute from "./routes/teachers/teacher.js";
 import classesRoute from "./routes/classes/classes.js";
-import loginRoute from "./routes/login.js";
+import loginRoute from "./routes/login/login.js";
 
-const PORT = 6000;
+const PORT = 5050;
 
 dotenv.config();
 

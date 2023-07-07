@@ -1,6 +1,7 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
-import teacherModel from "../models/teachers/teacherModel.js";
+import teacherModel from "../../models/teachers/teacherModel.js";
+import studentModel from "../../models/students/studentModel.js";
 import jwt from "jsonwebtoken";
 
 const router = Router();

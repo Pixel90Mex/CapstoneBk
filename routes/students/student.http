@@ -1,17 +1,21 @@
-GET http://localhost:6000/students
+GET http://localhost:5050/student
 
 ########################################
 
-POST http://localhost:6000/students HTTP/1.1
+GET http://localhost:5050/student/64a7eb2f10b2e7868d40e3e9 
+
+########################################
+
+POST http://localhost:5050/student HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Andrea",
-    "surname": "Messana",
-    "birth_date": "12/04/1990",
-    "email": "andre90messana@gmail.com",
-    "password": "briciola2",
-    "fiscal_code": "MSSNDR90D12E801M",
+    "name": "Tiziano",
+    "surname": "Grasso",
+    "birth_date": "5/12/1992",
+    "email": "grasso.tiziano@gmail.com",
+    "password": "shana",
+    "fiscal_code": "GRSTZN92T05E801Q",
     "class": "5^A",
     "school_subjects": {
             "primo_quadrimestre": [

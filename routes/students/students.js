@@ -4,7 +4,7 @@ import studentModel from "../../models/students/studentModel.js";
 //OPERAZIONI DI CRUD PER CREARE, CARICARE, MODIFICARE E CANCELLARE SINGOLI UTENTI DAL DATABASE
 const router = Router();
 //GET
-router.get("/students", async (req, res) => {
+router.get("/student", async (req, res) => {
     const { page = 1, pageSize = 3 } = req.query;
     try {
         const students = await studentModel.find()
@@ -28,8 +28,31 @@ router.get("/students", async (req, res) => {
         });
     }
 });
+//GET BY ID
+router.get("/student/:id", async (req, res) => {
+    const { id } = req.params;
+    const { page = 1, pageSize = 3 } = req.query;
+    try {
+        const students = await studentModel.findById(id)
+            //.populate("posts")
+            .limit(pageSize)
+            .skip((page - 1) * pageSize);
+        
+        res.status(200).send({
+            currentPage: +page,
+            students,
+            statusCode:200
+        });
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            message: "Errore interno del server",
+            statusCode: 500
+        });
+    }
+});
 //POST
-router.post("/students", async (req, res) => {
+router.post("/student", async (req, res) => {
     const genSalt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(req.body.password, genSalt);
 
@@ -68,7 +91,7 @@ router.post("/students", async (req, res) => {
     }
 });
 //PATCH
-router.patch('/students/:id', async (req, res) => {
+router.patch('/student/:id', async (req, res) => {
     const { id } = req.params;
     const studentExist = await studentModel.findById(id);
     if (!studentExist) {
@@ -99,7 +122,7 @@ router.patch('/students/:id', async (req, res) => {
     }
 });
 //DELETE
-router.delete('/students/:id', async (req, res) => {
+router.delete('/student/:id', async (req, res) => {
     const { id } = req.params;
     
     try {

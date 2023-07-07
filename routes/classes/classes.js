@@ -6,7 +6,7 @@ import teacherModel from "../../models/teachers/teacherModel.js";
 const router = Router();
 
 //GET
-router.get("/classes", async (req, res) => {
+router.get("/class", async (req, res) => {
     const { page = 1, pageSize = 13 } = req.query;
 
     try {
@@ -34,7 +34,7 @@ router.get("/classes", async (req, res) => {
     }
 });
 //POST --> tengo in considerazione che insegnanti e studenti siano già stati creati
-router.post("/classes", async (req, res) => {
+router.post("/class", async (req, res) => {
     const { section, teachers, students} = req.body;
     //quando monto frontend metto controllo per la section 
     //ciclo con condizionale per la section su array di studenti che arriva nella request + return 

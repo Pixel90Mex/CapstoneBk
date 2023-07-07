@@ -29,7 +29,7 @@ const studentSchema = new Schema({
     role: {
         type: String,
         required: false,
-        default: "student"
+        default: "user"
     },
     class: {
         type: String,
@@ -184,6 +184,6 @@ const studentSchema = new Schema({
     }
 );
 
-const studentModel= new model("Student", studentSchema, "students");
+const studentModel= new model("Student", studentSchema, "student");
 
 export default studentModel;

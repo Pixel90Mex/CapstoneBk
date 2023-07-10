@@ -13,7 +13,7 @@ content-type: application/json
     "password": "luna2",
     "fiscal_code": "ccccccccccccccccc",
     "school_subject": "fisica",
-    "role": "admin",
+    "role": "teacher",
     "class_group": {
         "classes": [
             "64a82007edebac3516a6e6b7"

@@ -29,7 +29,7 @@ const teacherSchema = new Schema({
     role: {
         type: String,
         required: false,
-        default: "user"
+        default: "teacher"
     },
     school_subject: {
         type: String,

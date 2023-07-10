@@ -29,7 +29,7 @@ const studentSchema = new Schema({
     role: {
         type: String,
         required: false,
-        default: "user"
+        default: "student"
     },
     class: {
         type: String,

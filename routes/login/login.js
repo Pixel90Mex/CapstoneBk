@@ -7,9 +7,10 @@ import jwt from "jsonwebtoken";
 const router = Router();
 
 router.post("/login", async (req, res) => {
-    const user = await teacherModel.findOne({ email: req.body.email});
-
-    if(!user) {
+    const userTeacher = await teacherModel.findOne({ email: req.body.email});
+    const userStudent = await studentModel.findOne({email: req.body.email});
+    let user = null;
+    if(!userTeacher && !userStudent) {
         return res
         .status(404)
         .send({
@@ -17,6 +18,11 @@ router.post("/login", async (req, res) => {
             statusCode: 404
         });
     };
+    if(userTeacher){
+        user = userTeacher;
+    } else {
+        user = userStudent;
+    }
     const validPw = await bcrypt.compare(req.body.password, user.password);
     if (!validPw) {
         return res
@@ -37,11 +43,13 @@ router.post("/login", async (req, res) => {
             expiresIn: "24",
         }
     );
+    console.log(user);
     res.header("auth", token)
             .status(200)
             .send({
                 message: "Login effettuato con successo",
                 statusCode: 200,
+                role: user.role,
                 token
             })
 });

@@ -2,7 +2,7 @@ GET http://localhost:5050/student
 
 ########################################
 
-GET http://localhost:5050/student/64a7eb2f10b2e7868d40e3e9 
+GET http://localhost:5050/student/64a7e3cff93b40ebd1760c27 
 
 ########################################
 

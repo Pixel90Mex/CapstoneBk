@@ -1,8 +1,17 @@
-POST http://localhost:6000/login HTTP/1.1
+POST http://localhost:5050/login HTTP/1.1
 content-type: application/json
 
 {
     "email": "carlo87leone@gmail.com",
-    "password": "luna2",
-    "role": "admin"
+    "password": "luna2"
+}
+
+##########################
+
+POST http://localhost:5050/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "grasso.tiziano@gmail.com",
+    "password": "shana"
 }

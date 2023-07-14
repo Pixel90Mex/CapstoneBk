@@ -31,7 +31,7 @@ const studentSchema = new Schema({
         required: false,
         default: "student"
     },
-    class: {
+    section: {
         type: String,
         required: true
     },

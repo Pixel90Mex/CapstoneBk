@@ -30,9 +30,33 @@ router.get("/class", async (req, res) => {
         })
     }
 });
+//GET BY SECTION
+router.get("/class/:id", async (req, res) => {
+    const { page = 1, pageSize = 13 } = req.query;
+    const { id } = req.params;
+    try {
+        const SingleClass = await classModel.findById(id)
+        .populate("class.students")
+        .limit(pageSize)
+        .skip((page - 1) * pageSize);
+
+        console.log(SingleClass)
+        res.status(200).send({
+            currentPage: +page,
+            SingleClass,
+            statusCode:200
+        });
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            message: "Errore interno del server",
+            statusCode: 500
+        });
+    }
+});
 //POST --> tengo in considerazione che insegnanti e studenti siano già stati creati
 router.post("/class", async (req, res) => {
-    const { section, teachers, students} = req.body;
+    const { section, students} = req.body;
     //quando monto frontend metto controllo per la section 
     //ciclo con condizionale per la section su array di studenti che arriva nella request + return 
     const classToInsert = await classModel({
@@ -44,7 +68,7 @@ router.post("/class", async (req, res) => {
     console.log(classToInsert)
     try {
         const sectionExist = await classModel.findOne({
-            section: req.body.section
+            $or: [{ section:req.body.class.section },{students:req.body.class.students} ]
         });
         if (sectionExist) {
             return res.status(409).send({

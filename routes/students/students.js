@@ -8,7 +8,6 @@ router.get("/student", async (req, res) => {
     const { page = 1, pageSize = 3 } = req.query;
     try {
         const students = await studentModel.find()
-            //.populate("posts")
             .limit(pageSize)
             .skip((page - 1) * pageSize);
 
@@ -31,22 +30,18 @@ router.get("/student", async (req, res) => {
 //GET BY ID
 router.get("/student/:id", async (req, res) => {
     const { id } = req.params;
-    const { page = 1, pageSize = 3 } = req.query;
     try {
-        const students = await studentModel.findById(id)
-            //.populate("posts")
-            .limit(pageSize)
-            .skip((page - 1) * pageSize);
+        const student = await studentModel.findById(id)
+            
         
         res.status(200).send({
-            currentPage: +page,
-            students,
+            student,
             statusCode:200
         });
     } catch (error) {
         console.log(error)
         res.status(500).send({
-            message: "Errore interno del server",
+            message: "Errore interno del server" + error,
             statusCode: 500
         });
     }
@@ -64,7 +59,7 @@ router.post("/student", async (req, res) => {
         password: hashPassword,
         fiscal_code: req.body.fiscal_code,
         role: req.body.role,
-        class: req.body.class,
+        section: req.body.section,
         school_subjects: req.body.school_subjects
     });
     try {
@@ -111,7 +106,6 @@ router.patch('/student/:id', async (req, res) => {
         );
         res.status(200).send({
             message: "Modifica effettuata con successo",
-            payload: result,
             statusCode: 200
         });
     } catch (error) {

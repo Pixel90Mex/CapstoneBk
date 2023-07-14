@@ -2,21 +2,25 @@ GET http://localhost:5050/teacher
 
 ########################################
 
+GET http://localhost:5050/teacher/64ac7ea68d3f7c7ba07f111e
+
+########################################
+
 POST http://localhost:5050/teacher HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Carlo",
-    "surname": "Leone",
-    "birth_date": "21/04/1987",
-    "email": "carlo87leone@gmail.com",
+    "name": "Salvatore",
+    "surname": "Messana",
+    "birth_date": "4/05/1943",
+    "email": "salvo87messana@gmail.com",
     "password": "luna2",
-    "fiscal_code": "ccccccccccccccccc",
-    "school_subject": "fisica",
+    "fiscal_code": "sssssssssssssss",
+    "school_subject": "matematica",
     "role": "teacher",
     "class_group": {
         "classes": [
-            "64a82007edebac3516a6e6b7"
+            "64ac76f28d3f7c7ba07f10fb"
         ]
     }
     

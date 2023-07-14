@@ -9,6 +9,7 @@ router.get("/teacher", async (req, res) => {
     try {
         const teachers = await teacherModel.find()
             .populate("class_group.classes")
+            //.populate("class_group.classes.class.students")
             .limit(pageSize)
             .skip((page - 1) * pageSize);
 
@@ -24,6 +25,25 @@ router.get("/teacher", async (req, res) => {
     } catch (error) {
         res.status(500).send({
             message: "Errore interno del server",
+            statusCode: 500
+        });
+    }
+});
+// GET BY ID
+router.get("/teacher/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const teacher = await teacherModel.findById(id)
+            .populate("class_group.classes")
+        
+        res.status(200).send({
+            teacher,
+            statusCode:200
+        });
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            message: "Errore interno del server" + error,
             statusCode: 500
         });
     }

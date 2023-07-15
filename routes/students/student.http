@@ -175,3 +175,19 @@ content-type: application/json
 
 DELETE http://localhost:6000/students/64999fed3d664d25067f0b5f HTTP/1.1
 content-type: application/json
+
+###########
+
+# PATCH http://localhost:5050/student/patchVotesIntoArray/64ac6e736dbd3d43c2c5b376/primo_quadrimestre/storia/orale/1/14 HTTP/1.1
+# content-type: application/json
+
+PATCH http://localhost:5050/student/patchVote/64ac6e736dbd3d43c2c5b376 HTTP/1.1
+content-type: application/json
+
+{
+    "index": 0,
+    "type": "orale",
+    "quad": "primo_quadrimestre",
+    "mat": "storia",
+    "value": 18
+}

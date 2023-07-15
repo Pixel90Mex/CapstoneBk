@@ -1,5 +1,6 @@
 import { Router } from "express";
 import classModel from "../../models/classes/classModel.js";
+import studentModel from "../../models/students/studentModel.js";
 
 const router = Router();
 
@@ -92,6 +93,54 @@ router.post("/class", async (req, res) => {
 });
 
 //PATCH PER MODIFICARE LISTA STUDENTI E DOCENTI (AGGIUNGERE O TOGLIERE)
+// router.patch("/student/patchVotesIntoArray/:id/:quad/:mat/:type/:index/:value", async(req, res) => {
+//     //http://localhost:5050/class/patchVotesIntoArray/64ac6e736dbd3d43c2c5b376/primo_quadrimestre/storia/orale/2/5
+//     const {index, value, id, quad, mat, type} = req.params
+//     const updateQuery={
+//         $set:{
+//             [`school_subjects.${quad}.${index}.${mat}.${type}`]: value
+//         }
+//     }
+//     try {
+//         const test = await studentModel.findById(id)
+//         //console.log(test)
+//         const VoteToUpdate = await studentModel.findByIdAndUpdate(
+//             id,
+//             updateQuery, 
+//             {
+//                 new: true
+//             }
+//         )
+//         res.status(200).send(VoteToUpdate)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// } )
+
+router.patch("/student/patchVote/:id", async(req, res) => {
+    //http://localhost:5050/class/patchVotesIntoArray/64ac6e736dbd3d43c2c5b376/primo_quadrimestre/storia/orale/2/5
+    const {index, value, quad, mat, type} = req.body;
+    const {id} = req.params
+    const updateQuery={
+        $push:{
+            [`school_subjects.${quad}.${index}.${mat}.${type}`]: value
+        }
+    }
+    try {
+        const test = await studentModel.findById(id)
+        //console.log(test)
+        const VoteToUpdate = await studentModel.findByIdAndUpdate(
+            id,
+            updateQuery, 
+            {
+                new: true
+            }
+        )
+        res.status(200).send(VoteToUpdate)
+    } catch (error) {
+        console.log(error)
+    }
+} )
 
 //DELETE PER CANCELLARE CLASSE, TOGLIERE STUDENTE O DOCENTE
 

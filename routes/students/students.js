@@ -115,6 +115,7 @@ router.patch('/student/:id', async (req, res) => {
         });
     }
 });
+//
 //DELETE
 router.delete('/student/:id', async (req, res) => {
     const { id } = req.params;

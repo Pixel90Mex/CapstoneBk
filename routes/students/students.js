@@ -1,7 +1,7 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
 import studentModel from "../../models/students/studentModel.js";
-//OPERAZIONI DI CRUD PER CREARE, CARICARE, MODIFICARE E CANCELLARE SINGOLI UTENTI DAL DATABASE
+
 const router = Router();
 //GET
 router.get("/student", async (req, res) => {
@@ -31,8 +31,7 @@ router.get("/student", async (req, res) => {
 router.get("/student/:id", async (req, res) => {
     const { id } = req.params;
     try {
-        const student = await studentModel.findById(id)
-            
+        const student = await studentModel.findById(id)  
         
         res.status(200).send({
             student,
@@ -46,6 +45,7 @@ router.get("/student/:id", async (req, res) => {
         });
     }
 });
+
 //POST
 router.post("/student", async (req, res) => {
     const genSalt = await bcrypt.genSalt(10);

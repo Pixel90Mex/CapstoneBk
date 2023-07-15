@@ -12,10 +12,9 @@ content-type: application/json
 
 {
     "class":{
-        "section": "5^A",
+        "section": "5^B",
         "students": [
-          "64ac6eab6dbd3d43c2c5b37c",
-          "64ac6efd6dbd3d43c2c5b382"
+         "64b2662d1122c31fc0397c6e"
         ]
     } 
 }

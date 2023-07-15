@@ -55,10 +55,10 @@ router.get("/class/:id", async (req, res) => {
         });
     }
 });
-//POST --> tengo in considerazione che insegnanti e studenti siano già stati creati
+//POST 
 router.post("/class", async (req, res) => {
     const { section, students} = req.body;
-    //quando monto frontend metto controllo per la section 
+    
     //ciclo con condizionale per la section su array di studenti che arriva nella request + return 
     const classToInsert = await classModel({
         class: {
@@ -92,43 +92,15 @@ router.post("/class", async (req, res) => {
     }
 });
 
-//PATCH PER MODIFICARE LISTA STUDENTI E DOCENTI (AGGIUNGERE O TOGLIERE)
-// router.patch("/student/patchVotesIntoArray/:id/:quad/:mat/:type/:index/:value", async(req, res) => {
-//     //http://localhost:5050/class/patchVotesIntoArray/64ac6e736dbd3d43c2c5b376/primo_quadrimestre/storia/orale/2/5
-//     const {index, value, id, quad, mat, type} = req.params
-//     const updateQuery={
-//         $set:{
-//             [`school_subjects.${quad}.${index}.${mat}.${type}`]: value
-//         }
-//     }
-//     try {
-//         const test = await studentModel.findById(id)
-//         //console.log(test)
-//         const VoteToUpdate = await studentModel.findByIdAndUpdate(
-//             id,
-//             updateQuery, 
-//             {
-//                 new: true
-//             }
-//         )
-//         res.status(200).send(VoteToUpdate)
-//     } catch (error) {
-//         console.log(error)
-//     }
-// } )
-
 router.patch("/student/patchVote/:id", async(req, res) => {
-    //http://localhost:5050/class/patchVotesIntoArray/64ac6e736dbd3d43c2c5b376/primo_quadrimestre/storia/orale/2/5
-    const {index, value, quad, mat, type} = req.body;
+    const {value, quad, mat, type} = req.body;
     const {id} = req.params
     const updateQuery={
         $push:{
-            [`school_subjects.${quad}.${index}.${mat}.${type}`]: value
+            [`school_subjects.${quad}.${mat}.${type}`]: value
         }
     }
     try {
-        const test = await studentModel.findById(id)
-        //console.log(test)
         const VoteToUpdate = await studentModel.findByIdAndUpdate(
             id,
             updateQuery, 
@@ -141,7 +113,5 @@ router.patch("/student/patchVote/:id", async(req, res) => {
         console.log(error)
     }
 } )
-
-//DELETE PER CANCELLARE CLASSE, TOGLIERE STUDENTE O DOCENTE
 
 export default router;

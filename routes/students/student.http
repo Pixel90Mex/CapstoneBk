@@ -10,15 +10,15 @@ POST http://localhost:5050/student HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Luca",
-    "surname": "Bulgarello",
+    "name": "Andrea",
+    "surname": "Messana",
     "birth_date": "30/09/1990",
-    "email": "luca90bulgarello@gmail.com",
-    "password": "bulga",
-    "fiscal_code": "bbbbbbbbbbbbbbb",
-    "section": "5^B",
+    "email": "andre90messana@gmail.com",
+    "password": "messa",
+    "fiscal_code": "aaaaaaaaaaaaaaa",
+    "section": "5^A",
     "school_subjects": {
-            "primo_quadrimestre": [
+            "primo_quadrimestre": 
             {
                 "storia": {
                     "orale": [4,5,9],
@@ -73,8 +73,8 @@ content-type: application/json
                     "voto": 6
                 }
             }
-        ],
-        "secondo_quadrimestre": [
+        ,
+        "secondo_quadrimestre": 
             {
                 "storia": {
                     "orale": [9, 9, 9],
@@ -129,8 +129,8 @@ content-type: application/json
                     "voto": 7
                 }
             }
-        ],
-        "Media_voti_finale": [
+        ,
+        "Media_voti_finale": 
             {
                 "storia": {
                     "media": 7
@@ -157,7 +157,7 @@ content-type: application/json
                     "voto": 6
                 }
             }
-        ]
+        
     }  
 }
 
@@ -181,7 +181,7 @@ content-type: application/json
 # PATCH http://localhost:5050/student/patchVotesIntoArray/64ac6e736dbd3d43c2c5b376/primo_quadrimestre/storia/orale/1/14 HTTP/1.1
 # content-type: application/json
 
-PATCH http://localhost:5050/student/patchVote/64ac6e736dbd3d43c2c5b376 HTTP/1.1
+PATCH http://localhost:5050/student/patchVote/64b2662d1122c31fc0397c6e HTTP/1.1
 content-type: application/json
 
 {
@@ -189,5 +189,5 @@ content-type: application/json
     "type": "orale",
     "quad": "primo_quadrimestre",
     "mat": "storia",
-    "value": 18
+    "value": 16
 }

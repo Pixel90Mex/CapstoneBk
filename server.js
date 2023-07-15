@@ -10,11 +10,10 @@ import loginRoute from "./routes/login/login.js";
 const PORT = 5050;
 
 dotenv.config();
-
 const server = express();
 
-server.use(express.json());
 server.use(cors());
+server.use(express.json());
 
 server.use("/", studentsRoute);
 server.use("/", teachersRoute);

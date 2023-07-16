@@ -2,7 +2,7 @@ GET http://localhost:5050/teacher
 
 ########################################
 
-GET http://localhost:5050/teacher/64ac7ea68d3f7c7ba07f111e
+GET http://localhost:5050/teacher/64ad2dcb693a3d9ca70a67b5
 
 ########################################
 
@@ -24,4 +24,17 @@ content-type: application/json
         ]
     }
     
+}
+
+#############################
+PATCH http://localhost:5050/teacher/64ad2dcb693a3d9ca70a67b5 HTTP/1.1
+content-type: application/json
+
+{
+    "class_group": {
+        "classes": [
+            "64b3bc262c5493bbdaf4d89a",
+            "64b2682c1122c31fc0397c9e"
+        ]
+    }
 }

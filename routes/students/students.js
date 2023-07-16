@@ -45,6 +45,26 @@ router.get("/student/:id", async (req, res) => {
         });
     }
 });
+//GET BY SUBJECT
+router.get("/student/:id/subject", async (req, res) => {
+    const {quad, mat} = req.query;
+    console.log(req.query)
+    const {id} = req.params
+    try {
+        const student = await studentModel.findById(id)
+        const subject = student["school_subjects"][quad][mat]
+        res.status(200).send({
+            subject, 
+            statusCode: 200
+        });
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            message: "Errore interno del server" + error,
+            statusCode: 500
+        })
+    }
+})
 
 //POST
 router.post("/student", async (req, res) => {

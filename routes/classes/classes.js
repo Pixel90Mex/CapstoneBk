@@ -31,7 +31,7 @@ router.get("/class", async (req, res) => {
         })
     }
 });
-//GET BY SECTION
+//GET BY id
 router.get("/class/:id", async (req, res) => {
     const { page = 1, pageSize = 13 } = req.query;
     const { id } = req.params;
@@ -95,20 +95,17 @@ router.post("/class", async (req, res) => {
 router.patch("/student/patchVote/:id", async(req, res) => {
     const {value, quad, mat, type} = req.body;
     const {id} = req.params
-    const updateQuery={
-        $push:{
-            [`school_subjects.${quad}.${mat}.${type}`]: value
-        }
-    }
+   
     try {
-        const VoteToUpdate = await studentModel.findByIdAndUpdate(
-            id,
-            updateQuery, 
-            {
-                new: true
-            }
-        )
-        res.status(200).send(VoteToUpdate)
+        const subject = await studentModel.findById(id)
+        const voteArray =  subject["school_subjects"][quad][mat][type]
+        voteArray.push(value)
+        subject["school_subjects"][quad][mat][`media_${type}`] = Math.floor(voteArray.reduce((x, y) => x + y )/ voteArray.length, 0)
+        subject["school_subjects"][quad][mat][`media_fine_${quad}`] = Math.floor((subject["school_subjects"][quad][mat]["media_scritto"] + subject["school_subjects"][quad][mat]["media_orale"]) / 2, 0)
+        subject["school_subjects"]["Media_voti_finale"][mat]["media"] = Math.floor((subject["school_subjects"]["primo_quadrimestre"][mat][`media_fine_primo_quadrimestre`] + subject["school_subjects"]["secondo_quadrimestre"][mat][`media_fine_secondo_quadrimestre`]) / 2, 0) 
+        //console.log(subject["school_subjects"]["Media_voti_finale"][mat]["media"])
+        await subject.save()
+        res.status(200).send(subject)
     } catch (error) {
         console.log(error)
     }

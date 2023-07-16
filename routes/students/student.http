@@ -10,13 +10,13 @@ POST http://localhost:5050/student HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Andrea",
-    "surname": "Messana",
-    "birth_date": "30/09/1990",
-    "email": "andre90messana@gmail.com",
-    "password": "messa",
-    "fiscal_code": "aaaaaaaaaaaaaaa",
-    "section": "5^A",
+    "name": "Tiziano",
+    "surname": "Grasso",
+    "birth_date": "23/05/1992",
+    "email": "tizi92grasso@gmail.com",
+    "password": "tizi",
+    "fiscal_code": "ttttttttttttttt",
+    "section": "5^c",
     "school_subjects": {
             "primo_quadrimestre": 
             {

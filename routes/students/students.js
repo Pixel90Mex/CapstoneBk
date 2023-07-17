@@ -1,6 +1,7 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
 import studentModel from "../../models/students/studentModel.js";
+import { verifyToken } from "../../middlewares/verifyToken.js";
 
 const router = Router();
 //GET

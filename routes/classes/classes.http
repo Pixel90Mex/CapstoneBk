@@ -18,3 +18,18 @@ content-type: application/json
         ]
     } 
 }
+
+#####################
+
+PATCH http://localhost:5050/class/64b3bc262c5493bbdaf4d89a
+content-type: application/json
+
+{
+    "class":{
+        "section": "5^C",
+        "students": [
+         "64b3bbf02c5493bbdaf4d895",
+         "64b5a5a3efa180daf2298c6a"
+        ]
+    } 
+}

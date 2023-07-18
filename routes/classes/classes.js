@@ -1,7 +1,6 @@
 import { Router } from "express";
 import classModel from "../../models/classes/classModel.js";
 import studentModel from "../../models/students/studentModel.js";
-import { verifyToken } from "../../middlewares/verifyToken.js";
 
 const router = Router();
 
@@ -90,6 +89,37 @@ router.post("/class", async (req, res) => {
             error: error.message,
             statusCode: 500
         })
+    }
+});
+//PATCH
+router.patch('/class/:id', async (req, res) => {
+    const { id } = req.params;
+    const classExist = await classModel.findById(id);
+    if (!classExist) {
+        return res.status(404).send({
+            message: "Sezione inesistente",
+            statusCode: 404
+        });
+    }
+    try {
+        const classID = id;
+        const dataUpdated = req.body;
+        const options = { new: true };
+        const result = await classModel.findByIdAndUpdate(
+            classID,
+            dataUpdated,
+            options
+        );
+        res.status(200).send({
+            message: "Modifica effettuata con successo",
+            payload: result,
+            statusCode: 200
+        });
+    } catch (error) {
+        res.status(500).send({
+            message: "Errore interno del server",
+            statusCode: 500
+        });
     }
 });
 

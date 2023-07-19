@@ -43,13 +43,10 @@ router.post("/login", async (req, res) => {
         role: user.role,
         id: user._id,
         class_group: user.class_group
-        },
-        process.env.SECRET_JWT_KEY,
-        {
-            expiresIn: "24",
-        }
+        }, process.env.SECRET_JWT_KEY, {
+                expiresIn: "24",
+                }
     );
-    console.log(user);
     res.header("auth", token)
             .status(200)
             .send({

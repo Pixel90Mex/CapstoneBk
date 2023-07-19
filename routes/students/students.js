@@ -1,7 +1,6 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
 import studentModel from "../../models/students/studentModel.js";
-import { verifyToken } from "../../middlewares/verifyToken.js";
 
 const router = Router();
 //GET
@@ -109,7 +108,10 @@ router.post("/student", async (req, res) => {
 //PATCH
 router.patch('/student/:id', async (req, res) => {
     const { id } = req.params;
-    const studentExist = await studentModel.findById(id);
+    const studentExist = await studentModel.findById(id)
+    .limit(pageSize)
+    .skip((page - 1) * pageSize);
+
     if (!studentExist) {
         return res.status(404).send({
             message: "Utente inesistente",

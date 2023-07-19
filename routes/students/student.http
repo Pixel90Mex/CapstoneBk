@@ -1,0 +1,193 @@
+GET http://localhost:5050/student
+
+########################################
+
+GET http://localhost:5050/student/64ac6e736dbd3d43c2c5b376
+
+########################################
+
+POST http://localhost:5050/student HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Fabrizio",
+    "surname": "Mule'",
+    "birth_date": "30/09/1993",
+    "email": "brizzio93mule@gmail.com",
+    "password": "brizzio",
+    "fiscal_code": "rrrrrrrrrrrrrrr",
+    "section": "5^C",
+    "school_subjects": {
+            "primo_quadrimestre": 
+            {
+                "storia": {
+                    "orale": [4,5,9],
+                    "scritto": [6,7,6],
+                    "media_orale": 6,
+                    "media_scritto": 6,
+                    "media_fine_primo_quadrimestre": 6
+                },
+                "filosofia": {
+                    "orale": [4, 4, 4],
+                    "scritto": [4, 4, 4],
+                    "media_orale": 4,
+                    "media_scritto": 4,
+                    "media_fine_primo_quadrimestre": 4
+                },
+                "italiano": {
+                    "orale": [5, 5, 5],
+                    "scritto": [5, 5, 5],
+                    "media_orale": 5,
+                    "media_scritto": 5,
+                    "media_fine_primo_quadrimestre": 5 
+                },
+                "matematica": {
+                    "orale": [7, 7, 7],
+                    "scritto": [7, 7, 7],
+                    "media_orale": 7,
+                    "media_scritto": 7,
+                    "media_fine_primo_quadrimestre": 7 
+                },
+                "scienze": {
+                    "orale": [8, 8, 8],
+                    "scritto": [8, 8, 8],
+                    "media_orale": 8,
+                    "media_scritto": 8,
+                    "media_fine_primo_quadrimestre": 8 
+                },
+                "educazione_fisica": {
+                    "orale": [9, 9, 9],
+                    "scritto": [9, 9, 9],
+                    "media_orale": 9,
+                    "media_scritto": 9,
+                    "media_fine_primo_quadrimestre": 9
+                },
+                "fisica": {
+                    "orale": [6, 6, 6],
+                    "scritto": [6, 6, 6],
+                    "media_orale": 6,
+                    "media_scritto": 6,
+                    "media_fine_primo_quadrimestre": 6
+                },
+                "comportamtento": {
+                    "voto": 6
+                }
+            }
+        ,
+        "secondo_quadrimestre": 
+            {
+                "storia": {
+                    "orale": [9, 9, 9],
+                    "scritto": [9, 9, 9],
+                    "media_orale": 9,
+                    "media_scritto": 9,
+                    "media_fine_secondo_quadrimestre": 9
+                },
+                "filosofia": {
+                    "orale": [7, 7, 7],
+                    "scritto": [7, 7, 7],
+                    "media_orale": 7,
+                    "media_scritto": 7,
+                    "media_fine_secondo_quadrimestre": 7
+                },
+                "italiano": {
+                    "orale": [6, 6, 6],
+                    "scritto": [6, 6, 6],
+                    "media_orale": 6,
+                    "media_scritto": 6,
+                    "media_fine_secondo_quadrimestre": 6 
+                },
+                "matematica": {
+                    "orale": [7, 7, 7],
+                    "scritto": [7, 7, 7],
+                    "media_orale": 7,
+                    "media_scritto": 7,
+                    "media_fine_secondo_quadrimestre": 7 
+                },
+                "scienze": {
+                    "orale": [6, 6, 6],
+                    "scritto": [6, 6, 6],
+                    "media_orale": 6,
+                    "media_scritto": 6,
+                    "media_fine_secondo_quadrimestre": 6 
+                },
+                "educazione_fisica": {
+                    "orale": [7, 7, 7],
+                    "scritto": [7, 7, 7],
+                    "media_orale": 7,
+                    "media_scritto": 7,
+                    "media_fine_secondo_quadrimestre": 7 
+                },
+                "fisica": {
+                    "orale": [6, 6, 6],
+                    "scritto": [6, 6, 6],
+                    "media_orale": 6,
+                    "media_scritto": 6,
+                    "media_fine_secondo_quadrimestre": 6 
+                },
+                "comportamtento": {
+                    "voto": 7
+                }
+            }
+        ,
+        "Media_voti_finale": 
+            {
+                "storia": {
+                    "media": 7
+                },
+                "filosofia": {
+                    "media": 5
+                },
+                "italiano": {
+                    "media": 5
+                },
+                "matematica": {
+                    "media": 7
+                },
+                "scienze": {
+                    "media": 7
+                },
+                "educazione_fisica": {
+                    "media": 7
+                },
+                "fisica": {
+                    "media": 6
+                },
+                "comportamtento": {
+                    "voto": 6
+                }
+            }
+        
+    }  
+}
+
+#################################################
+PATCH http://localhost:6000/students/64999fed3d664d25067f0b5f HTTP/1.1
+content-type: application/json
+
+{
+    "email": "andre90mexican@gmail.com",
+    "password": "1234"
+}
+
+
+#################################################
+
+DELETE http://localhost:6000/students/64999fed3d664d25067f0b5f HTTP/1.1
+content-type: application/json
+
+###########
+
+# PATCH http://localhost:5050/student/patchVotesIntoArray/64ac6e736dbd3d43c2c5b376/primo_quadrimestre/storia/orale/1/14 HTTP/1.1
+# content-type: application/json
+
+PATCH http://localhost:5050/student/patchVote/64b2662d1122c31fc0397c6e HTTP/1.1
+content-type: application/json
+
+{
+    "index": 0,
+    "type": "orale",
+    "quad": "primo_quadrimestre",
+    "mat": "storia",
+    "value": 16
+}
